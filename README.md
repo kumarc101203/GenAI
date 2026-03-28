@@ -3,17 +3,33 @@
 > A full-stack MERN application that uses Google Gemini AI to generate personalized interview reports based on your resume and job description.
 
 ---
-<img width="1919" height="880" alt="image" src="https://github.com/user-attachments/assets/0f5b5e9a-f88c-45af-91a0-786d1e14392d" />
+<!-- Preview Images -->
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/0f5b5e9a-f88c-45af-91a0-786d1e14392d">
+    <img src="https://github.com/user-attachments/assets/0f5b5e9a-f88c-45af-91a0-786d1e14392d" width="45%" />
+  </a>
+  <a href="https://github.com/user-attachments/assets/e9f17e38-fd81-48ec-96e9-fb3d28beb029">
+    <img src="https://github.com/user-attachments/assets/e9f17e38-fd81-48ec-96e9-fb3d28beb029" width="45%" />
+  </a>
+</p>
 
-<img width="1919" height="868" alt="image" src="https://github.com/user-attachments/assets/e9f17e38-fd81-48ec-96e9-fb3d28beb029" />
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/73d1f88d-db4f-4d64-b07b-eed38e53a0dd">
+    <img src="https://github.com/user-attachments/assets/73d1f88d-db4f-4d64-b07b-eed38e53a0dd" width="45%" />
+  </a>
+  <a href="https://github.com/user-attachments/assets/f1df4fb5-7bb2-473b-b4f0-f22177587d0a">
+    <img src="https://github.com/user-attachments/assets/f1df4fb5-7bb2-473b-b4f0-f22177587d0a" width="45%" />
+  </a>
+</p>
 
-<img width="1906" height="882" alt="image" src="https://github.com/user-attachments/assets/73d1f88d-db4f-4d64-b07b-eed38e53a0dd" />
-
-<img width="1898" height="868" alt="image" src="https://github.com/user-attachments/assets/f1df4fb5-7bb2-473b-b4f0-f22177587d0a" />
-
-<img width="1918" height="885" alt="image" src="https://github.com/user-attachments/assets/9eeb7cde-0f74-44a0-92ca-3058990b1cac" />
-
-<img width="1341" height="2069" alt="localhost_5173_settings" src="https://github.com/user-attachments/assets/3de5d78d-841a-43bf-a664-79edbfb3df11" />
+<p align="center">
+  <a href="https://github.com/user-attachments/assets/9eeb7cde-0f74-44a0-92ca-3058990b1cac">
+    <img src="https://github.com/user-attachments/assets/9eeb7cde-0f74-44a0-92ca-3058990b1cac" width="45%" />
+  </a>
+  <a href="https://github.com/user-attachments/assets/3de5d78d-841a-43bf-a664-79edbfb3df11">
+    <img src="https://github.com/user-attachments/assets/3de5d78d-841a-43bf-a664-79edbfb3df11" width="30%" />
+  </a>
+</p>
 
 
 ## Table of Contents
