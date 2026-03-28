@@ -1,40 +1,50 @@
 const {Router} = require('express')
 const authController = require("../controllers/auth.controller")
 const authMiddleware = require("../middlewares/auth.middleware")
+const passport = require("../config/passport")
+const jwt = require("jsonwebtoken")
 
 const authRouter = Router()
 
-/**
- * @route POST /api/auth/register
- * @description Register a new user
- * @access Public
- */
-authRouter.post("/register",authController.registerUserController)
+authRouter.post("/register", authController.registerUserController)
+authRouter.post("/login",    authController.loginUserController)
+authRouter.get("/logout",    authController.logoutUserController)
+authRouter.get("/me",        authMiddleware.authUser, authController.getMeController)
 
+// ── Google OAuth ──────────────────────────────────────────────────
+authRouter.get("/google",
+    passport.authenticate("google", { scope: ["profile", "email"], session: false })
+)
 
-/**
- * @route POST /api/auth/login
- * @description Login user with email and password
- * @access Public
- */
-authRouter.post("/login", authController.loginUserController)
+authRouter.get("/google/callback",
+    passport.authenticate("google", { session: false, failureRedirect: `${process.env.CLIENT_URL}/login?error=google_failed` }),
+    (req, res) => {
+        const token = jwt.sign(
+            { id: req.user._id, username: req.user.username },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        )
+        res.cookie("token", token, { httpOnly: true, sameSite: "lax" })
+        res.redirect(`${process.env.CLIENT_URL}/dashboard`)
+    }
+)
 
+// ── GitHub OAuth ──────────────────────────────────────────────────
+authRouter.get("/github",
+    passport.authenticate("github", { scope: ["user:email"], session: false })
+)
 
-
-/**
- * @route GET /api/auth/logout
- * @description clear token from user cookies and add token in blacklist
- * @access Public
- */
-authRouter.get("/logout", authController.logoutUserController)
-
-
-/**
- * @route GET /api/auth/get-me
- * @description get user details from current logged in user, expects token in cookies
- * @access Private
- */
-
-authRouter.get("/get-me", authMiddleware.authUser, authController.getMeController)
+authRouter.get("/github/callback",
+    passport.authenticate("github", { session: false, failureRedirect: `${process.env.CLIENT_URL}/login?error=github_failed` }),
+    (req, res) => {
+        const token = jwt.sign(
+            { id: req.user._id, username: req.user.username },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        )
+        res.cookie("token", token, { httpOnly: true, sameSite: "lax" })
+        res.redirect(`${process.env.CLIENT_URL}/dashboard`)
+    }
+)
 
 module.exports = authRouter

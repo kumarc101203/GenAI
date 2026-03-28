@@ -1,0 +1,83 @@
+// ── Liquid Glassmorphism Design System ──────────────────────────────
+
+// Glass card mixin
+@mixin glass($blur: 16px, $opacity: 0.08, $border-opacity: 0.18) {
+  background: rgba(255, 255, 255, $opacity);
+  backdrop-filter: blur($blur) saturate(180%);
+  -webkit-backdrop-filter: blur($blur) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, $border-opacity);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+@mixin glass-dark($blur: 20px) {
+  background: rgba(15, 15, 25, 0.55);
+  backdrop-filter: blur($blur) saturate(160%);
+  -webkit-backdrop-filter: blur($blur) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+@mixin glass-accent($blur: 18px) {
+  background: rgba(255, 77, 143, 0.08);
+  backdrop-filter: blur($blur) saturate(200%);
+  -webkit-backdrop-filter: blur($blur) saturate(200%);
+  border: 1px solid rgba(255, 77, 143, 0.2);
+  box-shadow:
+    0 8px 32px rgba(255, 77, 143, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+// Animated mesh background
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(255, 77, 143, 0.18) 0%, transparent 65%);
+    top: -200px; left: -200px;
+    animation: meshFloat1 12s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 65%);
+    bottom: -150px; right: -150px;
+    animation: meshFloat2 15s ease-in-out infinite;
+  }
+
+  .orb3 {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 65%);
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: meshFloat3 18s ease-in-out infinite;
+  }
+}
+
+@keyframes meshFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(80px, 60px) scale(1.1); }
+  66%       { transform: translate(-40px, 80px) scale(0.95); }
+}
+@keyframes meshFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-60px, -80px) scale(1.05); }
+  66%       { transform: translate(80px, -40px) scale(1.1); }
+}
+@keyframes meshFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.2); }
+}

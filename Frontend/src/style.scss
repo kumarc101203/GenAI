@@ -1,16 +1,42 @@
 @use "./style/button.scss";
+@use "./style/glass.scss";
 
-* {
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
+:root, [data-theme="dark"] {
+  --bg-primary: #0d0d14;
+  --bg-secondary: rgba(255,255,255,0.06);
+  --bg-nav: rgba(10,10,20,0.75);
+  --border: rgba(255,255,255,0.1);
+  --text-primary: #f0f0f5;
+  --text-secondary: #a0a0b8;
+  --text-muted: #555570;
+  --accent: #ff4d8f;
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.12);
 }
 
-html,
-body,
-#root {
+[data-theme="light"] {
+  --bg-primary: #f0f0f8;
+  --bg-secondary: rgba(255,255,255,0.7);
+  --bg-nav: rgba(255,255,255,0.8);
+  --border: rgba(0,0,0,0.08);
+  --text-primary: #1a1a2e;
+  --text-secondary: #555570;
+  --text-muted: #9999aa;
+  --accent: #ff4d8f;
+  --glass-bg: rgba(255,255,255,0.6);
+  --glass-border: rgba(255,255,255,0.9);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
   width: 100%;
-  background-color: #212121;
-  color: whitesmoke;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.highlight{
+    color: #2ffd99;
 }
